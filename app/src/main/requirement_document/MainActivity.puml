@@ -1,0 +1,716 @@
+@startuml
+
+' MainAcitivity 相关
+Interface View.OnClickListener
+
+IndexFragment *-- MainActivity
+
+SearchFragment *-- MainActivity
+
+PersonalFragment *-- MainActivity
+
+PreferenceDataFragment *-- MainActivity
+
+View.OnClickListener <|.. MainActivity
+
+ButterKnife <-- MainActivity
+
+ButterKnife <-- IndexFragment
+
+ButterKnife <-- SearchFragment
+
+ButterKnife <-- PreferenceDataFragment
+
+ButterKnife <-- ShopFoodDeatilActivity
+
+ButterKnife <-- ShopFoodActivity
+
+ButterKnife <-- CollectionActivity
+
+ButterKnife <-- OrderActivity
+
+class ButterKnife{
+}
+
+Class MainActivity{
+
+- indexFragment:IndexFragment
+
+- searchFragment:SearchFragment
+
+- orderFragment:OrderFragment
+
+- collectionFragment:PreferenceDataFragment
+
+- bottom_inde:LinearLayout
+
+- bottom_search:LinearLayout
+
+- bottom_oreder:LinearLayout
+
+- bottom_collection:LinearLayout
+
+-bottom_img_index:ImageButton
+
+-bottom_img_search:ImageButton
+
+-bottom_img_order:ImageButton
+
+-bottom_img_collect:ImageButton
+
+#onCreate():void
+
+- intiView():void
+
+- initEvent():void
+
++ onClick():void
+
++ onClickItem() :void
+
+- resetImgs():void
+
+- hideFragment(FragmentTransaction transaction);void
+
+- void setSelect(int i)
+
+}
+
+
+' 店铺首页相关
+
+ApiShopservice <.. IndexFragment
+
+ShopAdapter *-- IndexFragment
+
+Shop *-- ApiShopservice
+
+ShopViewHolder *-- shopAdapter
+
+View.OnClickListener <|.. ShopViewHolder
+
+ShopAdapterOnClickHandler <|.. IndexFragment
+
+Shop <.. IndexFragment
+
+Shop *-- ShopAdapter
+
+ShopDeatilActivity <.. IndexFragment
+
+Interface ApiShopservice{
+getShop:List<Shop>
+}
+
+Interface ShopAdapterOnClickHandler{
+onClickItem:void
+}
+
+
+Class IndexFragment{
+
+- recyclerView:RecyclerView
+
+- indexAdapter:IndexShopAdapter
+
+- datas: List<IndexShopAdapter>
+
+- service: ApisShopservice
+
++ onCrateView():void
+
+- intiView():void
+
+- initRecyclerView():void
+
+- showData():void
+
+- shopAdapter:ShopAdapter
+
+}
+
+Class ShopAdapter{
+
+-context:Context
+
+-mdatas:List<Shop>
+
+-ShopViewHolder:RecyclerView.ViewHolder
+
+-ShopAdapterOnClickHandler:Interface
+
++ShopAdapter():void
+
++onCreateViewHolder(ViewGroup parent, int viewType):ShopViewHolder
+
++  onBindViewHolder(ShopViewHolder holder, int position) :void
+
++  getItemCount():void
+}
+
+Class Shop{
+
+-shop_id:int
+
+-shopname:String
+
+-address:String
+
+-phonenum:String
+
+-intro:String
+
+-pic:String
+
+-comment:String
+
+-level:int
+}
+
+class ShopViewHolder{
+
+-shopName：EditTextView
+
+-shopINtro: EditTextView
+
+-shopPic: ImageView
+
+-level:EditTextView
+
++shopViewHolder:void
+
+}
+
+
+
+' 店铺内容页
+
+SharePreference <..ShopFoodDeatilActivity
+
+ShopFoodAdaper *-- ShopFoodDeatilActivity
+
+ShopFoodViewHolder *-- ShopFoodAdaper
+
+CommentFoodAdapter *-- ShopFoodDeatilActivity
+
+ShopFoodAdapterOnClickHandler  <|.. ShopFoodDeatilActivity
+
+ApiShopFoodservice  <.. ShopFoodDeatilActivity
+
+ApiCollectionPullservice <.. ShopFoodDeatilActivity
+
+ShopFood <.. ApiShopFoodservice
+
+ShopFood <.. ShopFoodDeatilActivity
+
+ShopFood *-- ShopFoodAdaper
+
+FoodDeatilActivity <.. ApiShopFoodservice
+
+Interface ApiShopFoodservice{
+getFoodList:List<Food>
+}
+
+Interface ShopFoodAdapterOnClickHandler{
+onClickItem():void
+}
+
+Interface ApiCollectionPullservice{
+collectionPull:String
+}
+
+class ShopFoodDeatilActivity{
+- shopName:EditText
+- shopIntro:EditText
+- shopAddress:EditText
+- shoplevel:RatingBar
+- foodRecyclerView: RecyclerView
+- foodAdapter:FoodAdaper
+#onCreate():void
++onClickItem():void
+-pullCollection:void
+}
+
+
+class ShopFood{
+-food_id:int
+-foodname:String
+-intro:String
+-pic:String
+-price:String
+-shop_id:int
+-type_id:int
+-recommand:int
+}
+
+Class ShopFoodAdapter{
+
+-context:Context
+
+-mdatas:List<Food>
+
+-FoodViewHolder:RecyclerView.ViewHolder
+
+-FoodAdapterOnClickHandler:Interface
+
++FoodAdapter():void
+
++onCreateViewHolder(ViewGroup parent, int viewType):FoodViewHolder
+
++  onBindViewHolder(FoodViewHolder holder, int position) :void
+
++  getItemCount():void
+
+}
+
+
+class ShopFoodViewHolder{
+
+-FoodName：EditTextView
+
+-FoodINtro: EditTextView
+
+-FoodPic: ImageView
+
+-level:EditTextView
+
++FoodViewHolder:void
+
+}
+
+
+
+' 食物内容页
+
+
+
+CommentAdaper *-- FoodDeatilActivity
+
+CommentFoodViewHolder *-- CommentAdaper
+
+Comment *-- CommentAdaper
+
+ApiFoodservice  <.. FoodDeatilActivity
+
+Food <.. ApiFoodservice
+
+Food <.. FoodDeatilActivity
+
+Comment <.. FoodDeatilActivity
+
+Interface ApiShopFoodservice{
+
+getFood():Food
+
+buyFood():String
+
+getComment():List<Comment>
+
+}
+
+class FoodDeatilActivity{
+
+- foodName:EditText
+
+- foodIntro:EditText
+
+- foodPrice:EditText
+
+- commentAdapter: CommentAdapter
+
+- commentRecyclerView:RecyclerView
+
+#onCreate():void
+
++buyFood();
+
+}
+
+
+Class CommentFoodAdapter{
+
+-context:Context
+
+-mdatas:List<Comment>
+
+-CommentViewHolder:RecyclerView.ViewHolder
+
+-CommentAdapterOnClickHandler:Interface
+
++CommentAdapter():void
+
++onCreateViewHolder(ViewGroup parent, int viewType):CommentViewHolder
+
++onBindViewHolder(CommentViewHolder holder, int position) :void
+
++getItemCount():void
+
+}
+
+
+class CommentFoodViewHolder{
+
+-CommentName：EditTextView
+
+-CommentINtro: EditTextView
+
+-CommentTime:EditTextView
+
+}
+
+Class Food{
+-food_id: int
+-foodname:String
+-intro:String
+-pic:String
+-price:int
+-shop_id:int
+-type_id:int
+-recommand:int
+
+}
+
+Class Comment{
+-order_id:int
+-user_id:int
+-food_id:int
+-foodname:String
+-num:int
+-sum:iny
+-suggesttime:String
+-ordertime:int
+-shopname:String
+-shopaddress:String
+-price:int
+-content:String
+-comment_time:String
+}
+
+
+
+' 搜索及其相关
+
+ShopAdapter *-- SearchFragment
+
+ShopFoodAdapter *-- SearchFragment
+
+ApiShopFoodservice  <.. SearchFragment
+
+ApiShopservice  <.. SearchFragment
+
+FoodDeatilActivity  <.. SearchFragment
+
+ShopFoodAdapterOnClickHandler  <|.. SearchFragment
+
+ShopAdapterOnClickHandler  <|.. SearchFragment
+
+Class SearchFragment{
+
+-shopAdapter:ShopAdapter
+
+-shopFoodAdapter:ShopFoodAdapter
+
+-shopRecyclerView:RecyclerView
+
+-shopFoodRecyclerView:RecyclerView
+
+-searchET:EditText;
+
++ onCrateView():void
+
+- intiView():void
+
+- initRecyclerView():void
+
++ onItemView():void
+
+}
+
+
+' 偏好统计页
+
+ShopAdapter *-- PreferenceDataFragment
+
+ApiUserInfoservice <.. PreferenceDataFragment
+
+UserInfo <.. ApiUserInfoservice
+
+OrderActivity <.. PreferenceDataFragment
+
+ConnectionActivity <.. PreferenceDataFragment
+
+UserInfo <.. PreferenceDataFragment
+
+Mpandroidchart <.. PreferenceDataFragment
+
+class ApiUserInfoservice{
+
+getUserInfo:List<UserInfo>
+}
+
+class Mpandroidchart{
+}
+
+class PreferenceDataFragment{
+- mpandroidchart:Mpandroidchart
+- drawChart():void
+}
+
+' 个人中心页
+
+View.OnClickListener<|..PersonalFragment
+
+CollectionActivity<..PersonalFragment
+
+OrderActivity<..PersonalFragment
+
+SharePreference <..PersonalFragment
+
+Collection<..CollectionActivity
+
+CollectionAdapter *..CollectionActivity
+
+CollectionViewHolder *.. CollectionAdapter
+
+View.onClickListener <|.. CollectionViewHolder
+
+CollectionAdapterOnClickHandler <|..CollectionActivity
+
+CollectionAdapterOnClickHandler *..CollectionAdapter
+
+Order<..OrderActivity
+
+OrderAdapter *..OrderActivity
+
+OrderViewHolder *.. OrderActivity
+
+View.onClickListener <|.. OrderViewHolder
+
+OrderAdapterOnClickHandler <|..OrderActivity
+
+OrderAdapterOnClickHandler *..CollectionAdapter
+
+
+Interface CollectionAdapterOnClickHandler{
+    onItemClick():void
+}
+
+Interface OrderAdapterOnClickHandler{
+    onItemClick():void
+}
+
+Order <.. OrderActivity
+
+class PersonalFragment{
+
+- orderButton:Button
+
+- collectionButton:Button
+
+- collectionButton:Button
+
+- userName:TextView
+
+- userImg:ImageView
+
++ setUserInfo():void
+
++ onClick():void
+
+}
+
+class CollectionActivity{
+
+-collectionAdapter:CollectionAdapter
+
+-collectionRecyclerView:RecyclerView
+
++ oncreate():void
+
++ onItemClick():void
+
+}
+
+Class CollectionAdapter{
+
+-context:Context
+
+-mdatas:List<Collection>
+
+-CollectionViewHolder:RecyclerView.ViewHolder
+
+-CollectionAdapterOnClickHandler:Interface
+
++ConnectionAdapter():void
+
++onCreateViewHolder(ViewGroup parent, int viewType):CollectionViewHolder
+
++  onBindViewHolder(CollectionViewHolder holder, int position) :void
+
++  getItemCount():void
+
+}
+
+
+class CollectionViewHolder{
+
+-FoodName：EditTextView
+
+-FoodINtro: EditTextView
+
+-FoodPic: ImageView
+
++FoodViewHolder():void
+
+}
+
+class OrderActivity{
+
+-orderAdapter:OrderAdapter
+
+-orderRecyclerView:RecyclerView
+
++ oncreate():void
+
++ onItemClick():void
+
+}
+
+
+Class OrderAdapter{
+
+-context:Context
+
+-mdatas:List<Order>
+
+-OrderViewHolder:RecyclerView.ViewHolder
+
+-OrderAdapterOnClickHandler:Interface
+
++OrderAdapter():void
+
++onCreateViewHolder(ViewGroup parent, int viewType):OrderViewHolder
+
++  onBindViewHolder(OrderViewHolder holder, int position) :void
+
++  getItemCount():void
+
+}
+
+
+class OrderViewHolder{
+
+-OrderName：EditTextView
+
+-OrderINtro: EditTextView
+
+-OrderPic: ImageView
+
++OrderViewHolder():void
+
+}
+
+
+Class Order{
+-order_id:int
+-user_id:int
+-food_id:int
+-username:String
+-foodname:String
+-num:int
+-sum:double
+-suggesttime:String
+-ordertime:String
+-shopname:String
+-shopaddress:String
+-price:double
+-content:String
+-comment_time:String
+}
+
+
+Class Collection{
+-user_id:int
+-food_id:int
+-shop_id:int
+-collect_id:int
+-username:String
+-foodname:String
+-shopname:String
+-flag:int
+-pic:String
+-price:String
+-address:String
+
+}
+
+
+Class UserInfo{
+-user_id:int
+-username:String
+-userpass:String
+-mobilenum:int
+-address:String
+-comment:String
+}
+
+
+' 登录
+
+ButterKnife <-- LoginActivity
+
+View.OnClickListener<..LoginActivity
+
+SharePreference <..LoginActivity
+
+RegisterActivity *..LoginActivity
+
+ApiloginService *..LoginActivity
+
+Interface ApiloginService{
+loginService:String
+}
+
+class LoginActivity{
+- userName:EditText
+- userPassWord:EditText
+- loginBt:Button
+- sharePreference:SharePreference;
+- rememBerCk:CheckBox
+
+#onCreate():void
++onClick:void
+}
+
+' 注册
+
+View.OnClickListener<..RegisterActivity
+
+ButterKnife<..RegisterActivity
+
+ApiRegisterService *..RegisterActivity
+
+Interface ApiRegisterService{
+
+registerService:String
+
+}
+
+class RegisterActivity{
+
+-user_id:EditText
+
+-username:EditText
+
+-userpass:EditText
+
+-mobilenum:EditText
+
+-address:EditText
+
+#onCreate:void
+
+-checkInput:void
+
+}
+
+@enduml

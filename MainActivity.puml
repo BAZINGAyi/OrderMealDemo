@@ -1,0 +1,93 @@
+@startuml
+
+IndexFragment *-- MainActivity
+
+SearchFragment *-- MainActivity
+
+OrderFragment *-- MainActivity
+
+CollectionFragment *-- MainActivity
+
+View.OnClickListener <|.. MainActivity
+
+ApiShopservice <.. IndexFragment
+
+Shop <.. IndexFragment
+
+Interface ApiShopservice
+
+Class MainActivity{
+
+- indexFragment:IndexFragment
+
+- searchFragment:SearchFragment
+
+- orderFragment:OrderFragment
+
+- collectionFragment:CollectionFragment
+
+- bottom_inde:LinearLayout
+
+- bottom_search:LinearLayout
+
+- bottom_oreder:LinearLayout
+
+- bottom_collection:LinearLayout
+
+-bottom_img_index:ImageButton
+
+-bottom_img_search:ImageButton
+
+-bottom_img_order:ImageButton
+
+-bottom_img_collect:ImageButton
+
+#onCreate():void
+
+- intiView():void
+
+- initEvent():void
+
++ onClick():void
+
+- resetImgs():void
+
+- hideFragment(FragmentTransaction transaction);void
+
+- void setSelect(int i)
+
+}
+
+Class IndexFragment{
+
+- recyclerView:RecyclerView
+
+- indexAdapter:IndexShopAdapter
+
+- datas: List<IndexShopAdapter>
+
+- service: ApisShopservice
+
++ onCrateView():void
+
+- intiView():void
+
+- initRecyclerView():void
+
+- showData():void
+
+}
+
+Class View.OnClickListener{
+
+}
+
+Class Shop{
+
+- shopName : String
+
+-
+
+}
+
+@enduml
