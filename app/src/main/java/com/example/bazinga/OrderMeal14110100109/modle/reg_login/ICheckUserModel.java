@@ -1,4 +1,4 @@
-package com.example.bazinga.OrderMeal14110100109.modle;
+package com.example.bazinga.OrderMeal14110100109.modle.reg_login;
 
 /**
  * Created by bazinga on 2017/4/11.

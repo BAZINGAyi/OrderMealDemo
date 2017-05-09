@@ -8,55 +8,39 @@ public class ShopFood {
 
 
     /**
+     * food_id : 1
+     * foodname : 酸菜鱼
+     * intro : 地道的川菜川菜取材广泛，调味多变，菜式多样，口味清鲜醇浓并重，以善用麻辣调味著称，并以其别具一格的烹调方法和浓郁的地方风味，融会了东南西北各方的特点，博采众家之长，善于吸收，善于创新，享誉中外。
+     * pic :
+     * price : 23
      * shop_id : 1
-     * shopname : 满口香川菜2
-     * address : 东软食堂三期
-     * phonenum : 12345678901
-     * intro : 地道的川菜
-     * pic : http://img3.redocn.com/tupian/20141126/xiangxiwaipocai_3613936.jpg
-     * comment : null
-     * level : 5
+     * type_id : 1
+     * recommand : 1
      */
 
-    private int shop_id;
-    private String shopname;
-    private String address;
-    private String phonenum;
+    private int food_id;
+    private String foodname;
     private String intro;
     private String pic;
-    private Object comment;
-    private int level;
+    private int price;
+    private int shop_id;
+    private int type_id;
+    private int recommand;
 
-    public int getShop_id() {
-        return shop_id;
+    public int getFood_id() {
+        return food_id;
     }
 
-    public void setShop_id(int shop_id) {
-        this.shop_id = shop_id;
+    public void setFood_id(int food_id) {
+        this.food_id = food_id;
     }
 
-    public String getShopname() {
-        return shopname;
+    public String getFoodname() {
+        return foodname;
     }
 
-    public void setShopname(String shopname) {
-        this.shopname = shopname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhonenum() {
-        return phonenum;
-    }
-
-    public void setPhonenum(String phonenum) {
-        this.phonenum = phonenum;
+    public void setFoodname(String foodname) {
+        this.foodname = foodname;
     }
 
     public String getIntro() {
@@ -75,19 +59,35 @@ public class ShopFood {
         this.pic = pic;
     }
 
-    public Object getComment() {
-        return comment;
+    public int getPrice() {
+        return price;
     }
 
-    public void setComment(Object comment) {
-        this.comment = comment;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public int getLevel() {
-        return level;
+    public int getShop_id() {
+        return shop_id;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setShop_id(int shop_id) {
+        this.shop_id = shop_id;
+    }
+
+    public int getType_id() {
+        return type_id;
+    }
+
+    public void setType_id(int type_id) {
+        this.type_id = type_id;
+    }
+
+    public int getRecommand() {
+        return recommand;
+    }
+
+    public void setRecommand(int recommand) {
+        this.recommand = recommand;
     }
 }

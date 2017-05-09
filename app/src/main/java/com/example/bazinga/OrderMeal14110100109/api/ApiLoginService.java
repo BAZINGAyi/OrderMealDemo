@@ -18,8 +18,9 @@ public interface   ApiLoginService {
     // 注册
     @GET("foodService/userRegister.do")
     Call<String> Register(@Query("username") String username,
-                       @Query("userpass") String password,
-                       @Query("mobilenum") String mobilenum,
-                       @Query("address") String address
+                          @Query("userpass") String password,
+                          @Query("mobilenum") String mobilenum,
+                          @Query("address") String address,
+                          @Query("comment") String comment
                        );
 }

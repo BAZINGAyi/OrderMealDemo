@@ -1,7 +1,12 @@
 package com.example.bazinga.OrderMeal14110100109.base;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.bazinga.OrderMeal14110100109.presenter.BasePresenter;
 
@@ -20,11 +25,14 @@ public abstract class MVPBaseActivity<V,T extends BasePresenter<V>> extends AppC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setInternalSystemState();
         //创建Presenter
         mPresenter = createPresenter();
         //内存泄漏
         //关联View
         mPresenter.attchView((V)this);
+
+
 
     }
 
@@ -37,4 +45,21 @@ public abstract class MVPBaseActivity<V,T extends BasePresenter<V>> extends AppC
     }
 
     protected abstract T createPresenter();
+
+    private void setInternalSystemState() {
+
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            View decorView = getWindow().getDecorView();
+
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        } else {
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            //全屏
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+    }
 }

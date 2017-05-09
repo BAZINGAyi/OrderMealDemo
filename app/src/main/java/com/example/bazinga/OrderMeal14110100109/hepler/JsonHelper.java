@@ -26,4 +26,21 @@ public class JsonHelper {
 
         return null;
     }
+
+    public String getRusult_Reg(String results){
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(results);
+
+            String re = jsonObject.getString("success");
+
+            return re;
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

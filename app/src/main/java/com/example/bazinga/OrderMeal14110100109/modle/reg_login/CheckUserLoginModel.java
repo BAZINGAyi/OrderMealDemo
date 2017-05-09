@@ -1,17 +1,15 @@
-package com.example.bazinga.OrderMeal14110100109.modle;
+package com.example.bazinga.OrderMeal14110100109.modle.reg_login;
 
-import com.example.bazinga.OrderMeal14110100109.api.ApiLoginService;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.example.bazinga.OrderMeal14110100109.base.Constants;
 import com.example.bazinga.OrderMeal14110100109.hepler.JsonHelper;
 import com.example.bazinga.OrderMeal14110100109.hepler.RetrofirHelper;
 
-import org.json.JSONException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by bazinga on 2017/4/11.
@@ -46,9 +44,10 @@ public class CheckUserLoginModel implements ICheckUserModel {
 
                     if(result != null){
 
-                        if(!result.equals("0"))
+                        if(!result.equals("0")){
 
                             checkUserLoadListener.onCompleted(true);
+                        }
 
                         else
 
@@ -69,6 +68,7 @@ public class CheckUserLoginModel implements ICheckUserModel {
 
 
     }
+
 
     // 设置判断的用户名和密码
     public void setUserInfo(String name, String password){

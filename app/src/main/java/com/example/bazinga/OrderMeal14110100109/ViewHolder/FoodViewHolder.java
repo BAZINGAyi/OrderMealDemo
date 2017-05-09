@@ -20,18 +20,18 @@ public class FoodViewHolder extends RecyclerView.ViewHolder {
 
     public @BindView(R.id.foodImage)
     ImageView foodImage;
+
     @BindView(R.id.foodName)
     public TextView foodName;
+
     public @BindView(R.id.foodPlace)
     TextView foodPlace;
+
     public @BindView(R.id.foodRank)
-    RatingBar foodRank;
+    TextView foodRank;
 
-    @BindView(R.id.foodPlace1)
-    public TextView foodPlace1;
-
-    @BindView(R.id.foodPlace2)
-    public TextView foodPlace2;
+    public @BindView(R.id.img_place)
+    ImageView img_place;
 
     public FoodViewHolder(View itemView) {
         super(itemView);

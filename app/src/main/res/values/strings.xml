@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">14110100109zyw</string>
+    <string name="networkError">网络加载失败</string>
+
+
+    <!-- 注册用户信息相关-->
+    <string name="reg_name_key">username</string>
+    <string name="reg_password_key">password</string>
+    <string name="reg_twopassword_key">two_password</string>
+    <string name="reg_address_key">address</string>
+    <string name="reg_comment_key">comment</string>
+    <string name="reg_phone_key">phone</string>
+    <string name="success_info">注册成功</string>
+    <string name="error_info">注册失败</string>
+
+    <!-- sharef-->
+    <string name="username">name</string>
+    <string name="password">password</string>
+    <string name="name">Neusoft Restaurant</string>
+    <string name="email_actor">potflesh@gmail.com</string>
+    <string name="title_activity_shop_detail">商店详情</string>
+
+
 </resources>
