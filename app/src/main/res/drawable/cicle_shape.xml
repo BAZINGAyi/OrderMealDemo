@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android:shape指定形状类型，默认为rectangle -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"    android:shape="oval">
+
+    <size
+        android:width="40dp"
+        android:height="40dp" />
+    <gradient
+        android:endColor="#f4e4ec"        android:gradientRadius="32dp"
+        android:startColor="#f4e4ec"        android:type="radial" />
+
+
+
+</shape>

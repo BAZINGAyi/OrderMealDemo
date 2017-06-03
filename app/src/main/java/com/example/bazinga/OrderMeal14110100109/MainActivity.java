@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.bazinga.OrderMeal14110100109.base.Constants;
 import com.example.bazinga.OrderMeal14110100109.fragment.IndexFragment;
 import com.example.bazinga.OrderMeal14110100109.fragment.PersonalFragment;
 import com.example.bazinga.OrderMeal14110100109.fragment.PreferenceDataFragment;
@@ -62,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         initEvent();
 
-        Glide.with(this).load("http://cn.bing.com/az/hprichbg/rb/HenequenCactus_ZH-CN11794616839_1920x1080.jpg").into(bingPicImg);
+        Glide.with(this).
+                load(Constants.BG_URL)
+                .into(bingPicImg);
 
         navButton.setOnClickListener(new View.OnClickListener() {
             @Override

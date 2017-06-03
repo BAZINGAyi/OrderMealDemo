@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="24sp"
+            android:text="数量"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/number"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="24sp"
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:background="@mipmap/add_price"
+            android:id="@+id/addNumber"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:background="@mipmap/rem_price"
+            android:layout_marginRight="20dp"
+            android:id="@+id/remNumber"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/price"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            android:text="12.8元"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"  />
+
+        <TextView
+
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:clickable="true"
+            android:text="购买"
+            android:textSize="24sp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorAccent"
+            android:id="@+id/buy"
+            android:layout_width="200dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>

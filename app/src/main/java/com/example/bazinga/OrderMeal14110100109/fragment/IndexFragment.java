@@ -16,7 +16,7 @@ import com.example.bazinga.OrderMeal14110100109.base.MVpBaseFragment;
 import com.example.bazinga.OrderMeal14110100109.bean.Shop;
 
 import com.example.bazinga.OrderMeal14110100109.presenter.index.GetIndexShopDataPersenter;
-import com.example.bazinga.OrderMeal14110100109.view.IShowIndexVIew;
+import com.example.bazinga.OrderMeal14110100109.view.IShowIndexView;
 
 import java.util.List;
 
@@ -28,8 +28,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class IndexFragment extends MVpBaseFragment<IShowIndexVIew,GetIndexShopDataPersenter>implements
-		IShowIndexVIew {
+public class IndexFragment extends MVpBaseFragment<IShowIndexView,GetIndexShopDataPersenter>implements
+		IShowIndexView {
 
 	@BindView(R.id.recyclerView)
 
@@ -51,6 +51,8 @@ public class IndexFragment extends MVpBaseFragment<IShowIndexVIew,GetIndexShopDa
 
 		mPresenter.attach(this);
 
+		setDialog(getString(R.string.loading));
+
 		mPresenter.getShopData();
 
 		return view;
@@ -71,12 +73,14 @@ public class IndexFragment extends MVpBaseFragment<IShowIndexVIew,GetIndexShopDa
 
 	@Override
 	public void showShowData(List<Shop> shopList) {
+		closeDialog();
 		foodAdapter = new IndexAdapter(shopList,getActivity());
 		recyclerView.setAdapter(foodAdapter);
 	}
 
 	@Override
 	public void showError(String msg) {
+		closeDialog();
 		if(msg != null)
 			Toast.makeText(getContext(),msg,Toast.LENGTH_LONG).show();
 	}

@@ -1,5 +1,6 @@
 package com.example.bazinga.OrderMeal14110100109.base;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +9,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.bazinga.OrderMeal14110100109.R;
+import com.example.bazinga.OrderMeal14110100109.hepler.DialogHelper;
+import com.example.bazinga.OrderMeal14110100109.hepler.ResourceHelper;
 import com.example.bazinga.OrderMeal14110100109.presenter.BasePresenter;
 
 /**
@@ -20,20 +24,23 @@ import com.example.bazinga.OrderMeal14110100109.presenter.BasePresenter;
  * Created by Administrator on 2016/8/19.
  */
 public abstract class MVPBaseActivity<V,T extends BasePresenter<V>> extends AppCompatActivity {
+
     protected T mPresenter;
+
+    DialogHelper dia = DialogHelper.getDialogHelper();
+
+    protected int userId = Constants.INITCODE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setInternalSystemState();
+        setInternalSystemState();
         //创建Presenter
         mPresenter = createPresenter();
         //内存泄漏
         //关联View
         mPresenter.attchView((V)this);
-
-
-
+        setUserId();
     }
 
 
@@ -61,5 +68,20 @@ public abstract class MVPBaseActivity<V,T extends BasePresenter<V>> extends AppC
             //全屏
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
+    }
+
+    protected void setDialog(String dialogContent){
+        dia.setActivity(this);
+        dia.setDialogContent(dialogContent);
+        dia.displayDialog();
+    }
+    protected void closeDialog(){
+        if (dia != null)
+            dia.closeDialog();
+    }
+
+    private void setUserId() {
+        SharedPreferences prefs = ResourceHelper.getSharePreferences(this);
+        userId = Integer.valueOf(prefs.getString(getString(R.string.userId),null));
     }
 }

@@ -35,7 +35,7 @@ public class ShopDetailOnClickHandler implements View.OnClickListener {
             intent.putExtra(ListenerType.FOOD_ID, objectId);
 
             if(intro != null)
-            intent.putExtra(ListenerType.SHOP_NAME, intro);
+            intent.putExtra(ListenerType.Extra_Info, intro);
 
             activity.startActivity(intent);
 

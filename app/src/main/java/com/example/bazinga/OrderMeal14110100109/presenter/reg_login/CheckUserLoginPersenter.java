@@ -14,73 +14,46 @@ import com.example.bazinga.OrderMeal14110100109.view.IShowCheckResultView;
 
 public class CheckUserLoginPersenter extends BasePresenter<IShowCheckResultView> {
 
-    IShowCheckResultView iShowCheckResultView;
-
     CheckUserLoginModel checkUserLoginModel = new CheckUserLoginModel();
 
-    Context context;
-
     public CheckUserLoginPersenter(){}
-
-    public void attach(IShowCheckResultView iShowCheckResultView){
-        this.iShowCheckResultView = iShowCheckResultView;
-    }
-
 
     public void check(final String name, final String password,final Boolean isRememberPass){
 
         if(name == null || "".equals(name) || password == null || "".equals(name))
-
-            iShowCheckResultView.showCheckResult(false);
+            presenterView.showCheckResult(false);
 
         if(checkUserLoginModel != null){
-
             checkUserLoginModel.setUserInfo(name,password);
-
             checkUserLoginModel.loadProgress(new ICheckUserModel.CheckUserLoadListener() {
                 @Override
-                public void onCompleted(Boolean isTrue) {
+                public void onCompleted(Boolean isTrue,String userId) {
                     if (isTrue){
+                            saveUserInfo(name,password,isRememberPass,userId);
+                        presenterView.showCheckResult(true);
+                    } else{
+                        presenterView.showCheckResult(false);
 
-                            saveUserInfo(name,password,isRememberPass);
-
-                        iShowCheckResultView.showCheckResult(true);
-
-                    } else
-                        iShowCheckResultView.showCheckResult(false);
+                    }
                 }
             });
         }
     }
 
-    public void setContext(Context context){
-        this.context = context;
-    }
-
-
-    private void saveUserInfo(String name , String password,Boolean isRememberPass) {
-
+    private void saveUserInfo(String name , String password,Boolean isRememberPass,String userId) {
          SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-
         if (!isRememberPass){
-
             editor.remove(context.getString(R.string.username));
-
             editor.remove(context.getString(R.string.password));
-
             editor.apply();
-
         }else{
-
-            editor.putString("name", name);
-
             SecurityClass s = new SecurityClass();
-
             String newPass = s.getMD5(password);
-
-            editor.putString("password",newPass);
-
+            editor.putString(context.getString(R.string.username),name);
+            editor.putString(context.getString(R.string.password), newPass);
+            editor.putString(context.getString(R.string.userId), userId);
             editor.apply();
+
         }
 
     }

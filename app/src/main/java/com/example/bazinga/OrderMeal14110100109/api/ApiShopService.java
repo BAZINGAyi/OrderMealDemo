@@ -1,5 +1,6 @@
 package com.example.bazinga.OrderMeal14110100109.api;
 
+import com.example.bazinga.OrderMeal14110100109.bean.Comment;
 import com.example.bazinga.OrderMeal14110100109.bean.Food;
 import com.example.bazinga.OrderMeal14110100109.bean.SearchFood;
 import com.example.bazinga.OrderMeal14110100109.bean.Shop;
@@ -19,20 +20,23 @@ public interface ApiShopService {
 
     // 获取所有店铺
 
-    @GET("/foodService/getAllShops.do")
+    @GET("/getAllShops.do")
     Call<List<Shop>> getShopList();
 
     // 获取店铺的所有菜谱
 
-    @GET("foodService/getFoodByShop.do")
+    @GET("/getFoodByShop.do")
     Call<List<ShopFood>> getShopFoodList(@Query("shop_id") int shopId);
 
     // 获取每道菜的详细信息
-    @GET("foodService/getShopById.do")
-    Call<List<Food>> getFoodList(@Query("shop_id") int shopId);
+    @GET("/getFoodById.do")
+    Call<Food> getFood(@Query("food_id") int foodId);
 
+    // 获取每道菜的评论
+    @GET("/getAllUserComment.do")
+    Call<List<Comment>> getComment(@Query("user_id") int foodId);
 
     // 搜索菜谱
-    @GET("http://172.24.10.130:8080/foodService/getFoodBySearch.do ")
+    @GET("/getFoodBySearch.do ")
     Call<List<SearchFood>> getSearchFoodList(@Query("search")String food);
 }

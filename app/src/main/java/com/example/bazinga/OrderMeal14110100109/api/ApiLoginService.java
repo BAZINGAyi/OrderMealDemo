@@ -11,12 +11,12 @@ import retrofit2.http.Query;
 public interface   ApiLoginService {
 
     // 登录
-    @GET("/foodService/userLogin.do")
+    @GET("/userLogin.do")
     Call<String> login(@Query("username") String username,
                        @Query("userpass") String password);
 
     // 注册
-    @GET("foodService/userRegister.do")
+    @GET("/userRegister.do")
     Call<String> Register(@Query("username") String username,
                           @Query("userpass") String password,
                           @Query("mobilenum") String mobilenum,

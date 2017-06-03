@@ -10,4 +10,6 @@ public class ListenerType {
     public static String SHOP_NAME = "shop_NAME";
 
     public static String FOOD_ID = "food_NAME";
+
+    public static String Extra_Info = "extra_info";
 }

@@ -1,88 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary_shallow"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_main"
+    style="@style/Layout_Parent"
     >
+<ImageView
+    android:id="@+id/bing_pic_img"
+    style="@style/Layout_Parent"
+    android:scaleType="centerCrop" />
+   <LinearLayout
+       style="@style/Layout_Parent_Padding"
+       android:orientation="vertical"
+       >
+
+       <LinearLayout
+           style="@style/login_textView"
+           android:layout_weight="1">
+
+           <ImageView
+               android:layout_gravity="center"
+               style="@style/logo_ImgView"
+               android:src="@mipmap/app_logo"
+               />
+
+       </LinearLayout>
+
+       <LinearLayout
+           style="@style/login_textView"
+           android:orientation="vertical"
+           android:layout_weight="2">
+           <android.support.design.widget.TextInputLayout
+               style="@style/login_editView"
+               android:textColorHint="#000"
+               >
+
+               <EditText
+                   android:id="@+id/username"
+                   style="@style/login_editView"
+                   android:inputType="textPersonName"
+                   android:hint="@string/layout_username" />
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:layout_marginTop="20dp"
+               style="@style/login_editView"
+               >
+
+               <EditText
+                   style="@style/login_editView"
+                   android:inputType="textPassword"
+                   android:ems="10"
+                   android:id="@+id/passaword"
+                   android:hint="@string/layout_password" />
+           </android.support.design.widget.TextInputLayout>
+
+           <Switch
+               android:layout_marginTop="20dp"
+               android:text="@string/layout_rememberPass"
+               android:layout_gravity="right"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/passaword"
+               android:id="@+id/remember_switch" />
+
+           <Button
+               android:text="@string/layout_login"
+               style="@style/login_textView"
+               android:layout_weight="1"
+               android:gravity="center"
+               android:textSize="24sp"
+               android:background="#0000"
+               android:id="@+id/login"
+               />
 
 
-    <EditText
-        android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/layer_edittext"
-        android:id="@+id/username"
-        android:hint="用户名"
-         />
+           <Button
+               android:clickable="true"
+               android:text="@string/layout_register"
+               style="@style/login_textView"
+               android:layout_height="wrap_content"
+               android:id="@+id/registerInfo"
+               android:background="#00ff0000"
+               />
 
-    <EditText
-        android:background="@drawable/layer_edittext"
-        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_marginTop="35dp"
-        android:id="@+id/passaword"
-        android:hint="密码"
-        android:layout_below="@+id/username"
-        android:layout_alignLeft="@+id/username"
-        android:layout_alignStart="@+id/username"
-        />
+       </LinearLayout>
 
-
-    <TextView
-        android:text="欢迎"
-        android:textColor="#111"
-        android:textSize="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="登录"
-        android:layout_width="300dp"
-        android:background="@color/colorPrimary"
-        android:layout_height="wrap_content"
-        android:id="@+id/login"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/remember_switch"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:clickable="true"
-        android:text="注册"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/registerInfo"
-        android:background="#00ff0000"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp" />
-
-    <Switch
-        android:text="记住密码"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passaword"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/remember_switch" />
-
-
-</RelativeLayout>
+   </LinearLayout>
+</FrameLayout>

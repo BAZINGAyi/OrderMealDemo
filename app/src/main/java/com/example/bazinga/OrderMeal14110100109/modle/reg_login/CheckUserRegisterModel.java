@@ -27,7 +27,7 @@ public class CheckUserRegisterModel implements ICheckUserModel {
 
     String name ;
     String pass ;
-    String pass1 ;
+    String passTwo ;
     String phone ;
     String address ;
     String comment ;
@@ -42,72 +42,65 @@ public class CheckUserRegisterModel implements ICheckUserModel {
 
         // 注册用户信息
 
-        RetrofirHelper retrofirHelper = new RetrofirHelper();
-
-        retrofirHelper.HelpRetrofit_Scalars(Constants.BaseUrl);
-
+        RetrofirHelper retrofirHelper = RetrofirHelper.getIntents();
+        retrofirHelper.start_RetrofirHelper(Constants.DATATYPE_Scalars,Constants.SERVICE_LOGIN,Constants.BaseUrl);
         Boolean goOn = checkUserInfos();
 
         if(goOn == true){
-
             Call<String> call = retrofirHelper.connectHttp_reg(
                    name, pass, phone, address, comment
             );
+
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
 
                     if(response.isSuccessful()){
-
                         String infoBean = response.body();
-
                         JsonHelper jsonHelper = new JsonHelper();
-
                         String result = jsonHelper.getRusult_Reg(infoBean);
 
                         if(result != null){
+                            if(!result.equals(Constants.JSON_RETURN_FAIL)){
+                                checkUserLoadListener.onCompleted(true,null);
+                            } else{
+                                checkUserLoadListener.onCompleted(false,null);
+                            }
 
-                            if(!result.equals("0"))
-
-                                checkUserLoadListener.onCompleted(true);
-
-                            else
-
-                                checkUserLoadListener.onCompleted(false);
                         }
                     }
                 }
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
-
+                    checkUserLoadListener.onCompleted(false,null);
                     t.printStackTrace();
                 }
             });
+
         }else {
-            checkUserLoadListener.onCompleted(false);
+            checkUserLoadListener.onCompleted(false,null);
         }
     }
 
     private Boolean checkUserInfos() {
 
-        FileterHelper fileterHelper = new FileterHelper();
+         FileterHelper fileterHelper = new FileterHelper();
 
          name = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_name_key)));
          pass = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_password_key)));
-         pass1 = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_twopassword_key)));
+         passTwo = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_twopassword_key)));
          phone = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_phone_key)));
          address = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_address_key)));
          comment = fileterHelper.filter(userInfos.get(context.getString(R.string.reg_comment_key)));
 
         if(name == null || pass == null
-                || pass == null || pass1 == null
-                || phone == null || address == null
+                || pass == null || passTwo == null || phone == null || address == null
                 || comment == null){
             return false;
         }
 
-        if(!pass.equals(pass1))
+        if(!pass.equals(passTwo))
             return false;
 
         return true;

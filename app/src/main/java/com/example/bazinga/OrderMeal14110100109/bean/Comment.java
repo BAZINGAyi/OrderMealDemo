@@ -6,49 +6,37 @@ package com.example.bazinga.OrderMeal14110100109.bean;
 
 public class Comment {
 
+
     /**
-     * order_id : 1
+     * order_id : 65
      * user_id : 1
-     * food_id : 1
+     * food_id : 11
      * username : lnn
-     * foodname : 酸菜鱼
+     * foodname : 糖醋丸子
      * num : 1
-     * sum : 23
-     * suggesttime : null
-     * ordertime : 2016-04-09 00:00:00.0
-     * shopname : 满口香川菜2
-     * shopaddress : 东软食堂三期
-     * price : 23
-     * content : å¾å¥½
-     * comment_time : 2017-04-10
+     * sum : 18
+     * suggesttime : 2017年05月08日 03:17:26
+     * ordertime : 2017-05-08 15:17:26.0
+     * shopname : 丸子铺
+     * shopaddress : 东软三期食堂
+     * price : 18
+     * content : bucuode wanzi
+     * comment_time : 2017-05-08
      */
 
     private int order_id;
-
     private int user_id;
-
     private int food_id;
-
     private String username;
-
     private String foodname;
-
     private int num;
-
     private int sum;
-
-    private Object suggesttime;
-
+    private String suggesttime;
     private String ordertime;
-
     private String shopname;
-
     private String shopaddress;
-
     private int price;
-
     private String content;
-
     private String comment_time;
 
     public int getOrder_id() {
@@ -107,11 +95,11 @@ public class Comment {
         this.sum = sum;
     }
 
-    public Object getSuggesttime() {
+    public String getSuggesttime() {
         return suggesttime;
     }
 
-    public void setSuggesttime(Object suggesttime) {
+    public void setSuggesttime(String suggesttime) {
         this.suggesttime = suggesttime;
     }
 

@@ -16,7 +16,8 @@ public interface ICheckUserModel {
     // 回调的接口
 
     interface CheckUserLoadListener{
-        void onCompleted(Boolean isTrue);
+        void onCompleted(Boolean isTrue, String userId);
     }
+
 
 }

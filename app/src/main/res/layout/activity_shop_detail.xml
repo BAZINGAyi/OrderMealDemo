@@ -61,11 +61,10 @@
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:id="@+id/collectFloatButton"
+        style="@style/floatButton"
         android:src="@mipmap/food_heart"
         app:layout_anchor="@id/appBar"
         app:backgroundTint="@color/accent"
-        app:layout_anchorGravity="bottom|end" />
+         />
 </android.support.design.widget.CoordinatorLayout>

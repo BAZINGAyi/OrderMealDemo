@@ -28,6 +28,8 @@ public class IndexAdapter extends RecyclerView.Adapter<FoodViewHolder> {
 
     private List<Shop> datas = new ArrayList<>();
 
+    private List<Integer> shopId = new ArrayList<>();
+
     private Activity activity;
 
     public IndexAdapter(	List<Shop> datas,Activity activity){

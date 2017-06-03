@@ -18,10 +18,8 @@ public class GetShopDataModel implements IgetShopDataModel {
     @Override
     public void loadProgress(final GetShopDataLoadListener getShopDataLoadListener) {
 
-        RetrofirHelper retrofirHelper = new RetrofirHelper();
-
-        retrofirHelper.HelpRetrofit_Gson(Constants.BaseUrl);
-
+        RetrofirHelper retrofirHelper = RetrofirHelper.getIntents();
+        retrofirHelper.start_RetrofirHelper(Constants.DATATYPE_GSON,Constants.SERVICE_SHOP,Constants.BaseUrl);
         Call<List<Shop>> call = retrofirHelper.connectHttp_getData();
 
         call.enqueue(new Callback<List<Shop>>() {
@@ -29,9 +27,7 @@ public class GetShopDataModel implements IgetShopDataModel {
             public void onResponse(Call<List<Shop>> call, Response<List<Shop>> response) {
 
                 if(response.isSuccessful()){
-
                     List<Shop> infoBean = response.body();
-
                     getShopDataLoadListener.onCompleted(infoBean);
 
                     }
@@ -39,7 +35,7 @@ public class GetShopDataModel implements IgetShopDataModel {
 
             @Override
             public void onFailure(Call<List<Shop>> call, Throwable t) {
-
+                getShopDataLoadListener.onCompleted(null);
                 t.printStackTrace();
             }
 

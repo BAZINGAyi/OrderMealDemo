@@ -13,20 +13,7 @@ import java.util.Map;
 
 public class CheckUserRegisterPresenter extends BasePresenter<IShowCheckResultView> {
 
-    IShowCheckResultView iShowCheckResultView;
-
     CheckUserRegisterModel checkUserRegisterModel= new CheckUserRegisterModel();
-
-    Context context ;
-
-    public void setMyContext( Context context ){
-
-        this.context = context;
-    }
-
-    public void attach(IShowCheckResultView iShowCheckResultView){
-        this.iShowCheckResultView = iShowCheckResultView;
-    }
 
     public void register( Map<String,String> maps){
 
@@ -36,13 +23,13 @@ public class CheckUserRegisterPresenter extends BasePresenter<IShowCheckResultVi
 
             checkUserRegisterModel.loadProgress(new ICheckUserModel.CheckUserLoadListener() {
                 @Override
-                public void onCompleted(Boolean isTrue) {
+                public void onCompleted(Boolean isTrue,String userId) {
                     if (isTrue){
 
-                        iShowCheckResultView.showCheckResult(true);
+                        presenterView.showCheckResult(true);
 
                     } else
-                    iShowCheckResultView.showCheckResult(false);
+                        presenterView.showCheckResult(false);
                 }
             });
 

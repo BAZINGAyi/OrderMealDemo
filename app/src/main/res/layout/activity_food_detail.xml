@@ -36,13 +36,13 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:id="@+id/collectFloatingAction"
+        style="@style/floatButton"
         android:src="@mipmap/food_heart"
         app:backgroundTint="@color/colorAccent"
         app:layout_anchor="@id/appBar"
-        app:layout_anchorGravity="bottom|end" />
+        app:elevation="5dp"
+       />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

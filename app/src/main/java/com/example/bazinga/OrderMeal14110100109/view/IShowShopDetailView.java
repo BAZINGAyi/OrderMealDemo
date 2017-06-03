@@ -9,8 +9,13 @@ import java.util.List;
  * Created by bazinga on 2017/5/8.
  */
 
-public interface IshowShopDetailView {
+public interface IShowShopDetailView {
+
     void showShowData(List<ShopFood> shopList);
 
     void showError(String msg);
+
+    void showCollectResult(Boolean result);
+
+    void showCheckCollectResult(Boolean result);
 }

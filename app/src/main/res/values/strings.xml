@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">14110100109zyw</string>
+    <string name="app_name">Neusoft Restaurant</string>
     <string name="networkError">网络加载失败</string>
 
 
@@ -19,6 +19,38 @@
     <string name="name">Neusoft Restaurant</string>
     <string name="email_actor">potflesh@gmail.com</string>
     <string name="title_activity_shop_detail">商店详情</string>
+    <string name="userId">userId</string>
+
+    <!-- 错误提示 -->
+    <string name="empty_data">没有相关数据</string>
+
+
+    <string name="LoginSuccessHint">登录成功</string>
+    <string name="LoginFailHint">登录失败</string>
+
+
+    <!-- 布局 文件 -->
+    <string name="layout_username">用户名:</string>
+    <string name="layout_password">密码:</string>
+    <string name="layout_rememberPass">记住密码</string>
+    <string name="layout_login">登录</string>
+    <string name="layout_register">注册</string>
+    <string name="layout_passwordTwo">确认密码</string>
+    <string name="layout_phone">电话</string>
+    <string name="layout_commit">备注</string>
+    <string name="layout_address">地址</string>
+    <string name="loading">正在加载...</string>
+    <string name="BUY_SUCCESS">购买成功</string>
+    <string name="BUY_FAIL">购买失败</string>
+    <string name="BUY_HINT">购买</string>
+    <string name="BUY_HINT_CONTNET">是否购买?</string>
+    <string name="YES">是</string>
+    <string name="NO">否</string>
+    <string name="COLLECT_FOOD_CONTENT">确认收藏</string>
+    <string name="COLLECT_SHOP_CONTENT">是否收藏</string>
+    <string name="COllECT_SUCCESS">收藏成功</string>
+    <string name="COLLECT_FAIL">收藏失败</string>
+    <string name="COllECT_CHECK_SUCCESS">您已经收藏过了</string>
 
 
 </resources>

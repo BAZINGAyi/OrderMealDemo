@@ -8,7 +8,7 @@ import java.util.List;
  * Created by bazinga on 2017/4/17.
  */
 
-public interface IShowIndexVIew {
+public interface IShowIndexView {
 
     void showShowData(List<Shop> shopList);
 

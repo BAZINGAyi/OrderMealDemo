@@ -17,32 +17,38 @@ import rx.Observable;
 
 public interface ApiPersonalService {
     // 评论
-    @GET("social/")
+    @GET("/social/")
     Observable<List<Comment>> getCommentList(@Query("user_id") int UserId);
 
     // 订单
-    @GET("/foodService/getAllUserOrder.do")
+    @GET("/getAllUserOrder.do")
     Observable<List<Order>> getOrderList(@Query("user_id") int UserId);
 
     // 收藏或取消收藏
-    @GET("/foodService/getAllUserCollection.do")
-    Observable<List<Order>> setCollection(@Query("user_id") int UserId,
-                                         @Query("flag") int flag
+    @GET("/userCollectShop.do")
+    Call<String> setShopCollection(@Query("user_id") int UserId,
+                                         @Query("shop_id") int shopId
+    );
+
+    // 收藏或取消收藏
+    @GET("/userCollectFood.do")
+    Call<String> setFoodCollection(@Query("user_id") int UserId,
+                               @Query("food_id") int FoodId
     );
 
     // 判读是否收藏
-    @GET("/foodService/isCollected.do")
-    Observable<List<Order>> isCollection(@Query("user_id") int UserId,
+    @GET("/isCollected.do")
+    Call<String> checkCollection(@Query("user_id") int UserId,
                                          @Query("shop_food_id") int shopFoodId,
                                          @Query("flag") int flag
     );
 
     // 获取用户信息
-    @GET("/foodService/getUserById.do")
+    @GET("/getUserById.do")
     Observable<UserInfo> getUsInfor(@Query("user_id") int UserId);
 
     // 修改用户信息
-    @GET("/foodService/updateUserById.do")
+    @GET("/updateUserById.do")
     Observable<UserInfo> setUsInfor(@Query("user_id") int UserId,
                                          @Query("username") String username,
                                          @Query("userpass") String password,
@@ -51,11 +57,11 @@ public interface ApiPersonalService {
     );
 
     // 购买接口
-    @GET("/foodService/insertOrder.do")
-    Call<String> login(@Query("user_id") String userId,
-                       @Query("food_id") String foodId,
+    @GET("/insertOrder.do")
+    Call<String> buy(@Query("user_id") int userId,
+                       @Query("food_id") int foodId,
                        @Query("num") int num,
-                       @Query("sum") int sum,
+                       @Query("sum") double sum,
                        @Query("suggesttime") String suggesttime
                        );
 
