@@ -8,6 +8,7 @@ import com.example.bazinga.OrderMeal14110100109.api.ApiShopService;
 import com.example.bazinga.OrderMeal14110100109.base.Constants;
 import com.example.bazinga.OrderMeal14110100109.bean.Comment;
 import com.example.bazinga.OrderMeal14110100109.bean.Food;
+import com.example.bazinga.OrderMeal14110100109.bean.SearchFood;
 import com.example.bazinga.OrderMeal14110100109.bean.Shop;
 import com.example.bazinga.OrderMeal14110100109.bean.ShopFood;
 
@@ -122,6 +123,11 @@ public class RetrofirHelper {
 
     public Call<String> connectHttp_collectCheck(int userId, int shopId,int shopFlag){
         Call<String> call = apiPersonalService.checkCollection(userId,shopId,shopFlag);
+        return call;
+    }
+
+    public Call<List<SearchFood>> connectHttp_getSearchFoodList(String foodName){
+        Call<List<SearchFood>> call = infoShopApi.getSearchFoodList(foodName);
         return call;
     }
 

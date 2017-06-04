@@ -82,6 +82,8 @@ public abstract class MVPBaseActivity<V,T extends BasePresenter<V>> extends AppC
 
     private void setUserId() {
         SharedPreferences prefs = ResourceHelper.getSharePreferences(this);
-        userId = Integer.valueOf(prefs.getString(getString(R.string.userId),null));
+        String userId = prefs.getString(getString(R.string.userId),null);
+        if (userId != null)
+        this.userId = Integer.valueOf(userId);
     }
 }

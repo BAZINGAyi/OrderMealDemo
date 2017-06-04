@@ -51,6 +51,11 @@
     <string name="COllECT_SUCCESS">收藏成功</string>
     <string name="COLLECT_FAIL">收藏失败</string>
     <string name="COllECT_CHECK_SUCCESS">您已经收藏过了</string>
+    <string name="search_content">搜索</string>
+    <string name="layout_search_content">搜索</string>
+    <string name="NO_FIND_RESULT">没有找到相关的内容，为您推荐如下：</string>
+    <string name="SEARCH_HINT_ERROR">您的输入为空，请重新输入</string>
+    <string name="Oider_Dish_Content">订餐统计</string>
 
 
 </resources>

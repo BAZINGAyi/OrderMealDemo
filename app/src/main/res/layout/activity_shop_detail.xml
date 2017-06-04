@@ -2,8 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/Layout_Parent"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -14,8 +13,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/Layout_Parent"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/primary"
@@ -23,8 +21,7 @@
 
             <ImageView
                 android:id="@+id/food_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                style="@style/Layout_Parent"
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax" />
@@ -38,22 +35,17 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/Layout_Parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+            style="@style/vertical_wrapContent">
 
                 <android.support.v7.widget.RecyclerView
                     android:layout_marginTop="25dp"
                     android:id="@+id/shopDeatil_recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    style="@style/Layout_Parent">
 
                 </android.support.v7.widget.RecyclerView>
 

@@ -10,7 +10,7 @@ public class Constants {
     public static final String UNIT = "元";
     // 背景图
    // public static final String BG_URL = "http://cn.bing.com/az/hprichbg/rb/HenequenCactus_ZH-CN11794616839_1920x1080.jpg";
-    public static final int BG_URL = R.mipmap.rem_price;
+    public static final int BG_URL = R.mipmap.bg1;
     // 服务器
     public static String BaseUrl = "http://60.205.189.39/";
     // layout

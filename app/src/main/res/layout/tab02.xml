@@ -1,16 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Layout_Parent_Padding"
+    android:orientation="vertical">
 
-    <TextView
-        android:background="#0f0"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:text="This is Frd Tab"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <ImageView
+
+        android:src="@drawable/ic_search_logo"
+        style="@style/Layout_Parent"
+        android:layout_height="70dp"/>
+
+    <ImageView
+        android:src="@mipmap/search_word_logo"
+        style="@style/Layout_Parent"
+        android:layout_height="70dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/requestFocus"
+        android:orientation="horizontal"
+        android:gravity="top"
+        style="@style/Layout_Parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"  >
+
+        <com.example.bazinga.OrderMeal14110100109.customview.Search_View
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_layout"/>
+
+
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/searchEditView"
+            android:padding="5dp"
+            android:background="@drawable/search_shape"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="6"
+            android:inputType="text"
+            android:textColorHint="#fff"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:hint="@string/layout_search_content"
+            style="@style/Layout_Parent" />
+
+
+        <Button
+            android:id="@+id/searchButton"
+            android:text="@string/search_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="#4fff"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+
+   <TextView
+       android:visibility="gone"
+       android:id="@+id/hintResult"
+       android:layout_marginTop="10dp"
+       android:textColor="#000"
+       android:text="@string/NO_FIND_RESULT"
+       style="@style/vertical_wrapContent" />
+
+    <LinearLayout
+        style="@style/Layout_Parent_Padding"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/searchRecyclerView"
+            style="@style/Layout_Parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

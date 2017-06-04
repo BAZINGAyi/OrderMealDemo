@@ -14,9 +14,7 @@ import com.example.bazinga.OrderMeal14110100109.ui.ShopDetailActivity;
 public class FoodAdapterOnClickHandler implements View.OnClickListener {
 
         private int objectId;
-
         private Activity activity;
-
         private String intro;
 
         public FoodAdapterOnClickHandler(int objectId, Activity activity,String intro) {
@@ -31,7 +29,6 @@ public class FoodAdapterOnClickHandler implements View.OnClickListener {
         public void onClick(View v) {
 
             Intent intent = new Intent(activity, ShopDetailActivity.class);
-
             intent.putExtra(ListenerType.SHOP, objectId);
 
             if(intro != null)

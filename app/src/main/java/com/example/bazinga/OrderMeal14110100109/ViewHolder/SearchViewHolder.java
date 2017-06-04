@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.example.bazinga.OrderMeal14110100109.R;
 
 import butterknife.BindView;
@@ -20,13 +19,13 @@ public class SearchViewHolder extends RecyclerView.ViewHolder {
     public @BindView(R.id.foodImage)
     ImageView foodImage;
 
-    @BindView(R.id.foodName)
+     @BindView(R.id.foodName)
     public TextView foodName;
 
-    public @BindView(R.id.foodPlace)
-    TextView foodPlace;
+     public @BindView(R.id.foodPrice)
+    TextView foodPrice;
 
-    public @BindView(R.id.foodRank)
+     public @BindView(R.id.foodRank)
     TextView foodRank;
 
     public @BindView(R.id.img_place)

@@ -14,7 +14,7 @@
 
         <item android:id="@+id/nav_collection"
             android:icon="@drawable/tab_collectiondata_normal"
-            android:title="喜爱"/>
+            android:title="统计偏好"/>
 
         <item android:id="@+id/nav_my"
             android:icon="@drawable/tab_personal_normal"

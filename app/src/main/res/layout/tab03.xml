@@ -4,12 +4,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:text="This is Address Tab"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+          style="@style/Layout_Parent">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/Oider_Dish_Content"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:layout_marginTop="15dp"
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:visibility="gone"
+            android:layout_marginTop="15dp"
+            android:id="@+id/chartSleep"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:layout_marginTop="15dp"
+            android:id="@+id/pieChartSleep"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

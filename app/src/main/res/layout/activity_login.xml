@@ -30,9 +30,10 @@
            style="@style/login_textView"
            android:orientation="vertical"
            android:layout_weight="2">
+
            <android.support.design.widget.TextInputLayout
-               style="@style/login_editView"
-               android:textColorHint="#000"
+               style="@style/login_inputLayout"
+               app:hintTextAppearance="@style/MyStyle"
                >
 
                <EditText
@@ -42,9 +43,12 @@
                    android:hint="@string/layout_username" />
            </android.support.design.widget.TextInputLayout>
 
+
+
            <android.support.design.widget.TextInputLayout
-               android:layout_marginTop="20dp"
-               style="@style/login_editView"
+               android:layout_marginTop="10dp"
+               style="@style/login_inputLayout"
+               app:hintTextAppearance="@style/MyStyle"
                >
 
                <EditText
@@ -55,34 +59,50 @@
                    android:hint="@string/layout_password" />
            </android.support.design.widget.TextInputLayout>
 
-           <Switch
-               android:layout_marginTop="20dp"
-               android:text="@string/layout_rememberPass"
-               android:layout_gravity="right"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/passaword"
-               android:id="@+id/remember_switch" />
-
-           <Button
-               android:text="@string/layout_login"
-               style="@style/login_textView"
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               style="@style/Layout_Parent"
                android:layout_weight="1"
-               android:gravity="center"
-               android:textSize="24sp"
-               android:background="#0000"
-               android:id="@+id/login"
-               />
+               android:orientation="vertical"
+               android:background="#4fff">
+
+               <Switch
+                   android:layout_marginTop="20dp"
+                   android:text="@string/layout_rememberPass"
+                   android:textColor="#000"
+                   android:layout_gravity="right"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@+id/passaword"
+                   android:id="@+id/remember_switch" />
 
 
-           <Button
-               android:clickable="true"
-               android:text="@string/layout_register"
-               style="@style/login_textView"
-               android:layout_height="wrap_content"
-               android:id="@+id/registerInfo"
-               android:background="#00ff0000"
-               />
+
+               <Button
+                   android:text="@string/layout_login"
+                   style="@style/login_textView"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:textSize="24sp"
+                   android:id="@+id/login"
+                   android:background="#0000"
+                   />
+
+
+               <Button
+                   android:clickable="true"
+                   android:text="@string/layout_register"
+                   style="@style/login_textView"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/registerInfo"
+                   android:background="#00ff0000"
+                   />
+
+
+           </LinearLayout>
+
+
+
 
        </LinearLayout>
 

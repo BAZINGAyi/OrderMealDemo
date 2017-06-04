@@ -1,5 +1,6 @@
 package com.example.bazinga.OrderMeal14110100109.modle.search_frg;
 
+import com.example.bazinga.OrderMeal14110100109.bean.SearchFood;
 import com.example.bazinga.OrderMeal14110100109.bean.Shop;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.List;
 
 public interface IgetSearchDataModel {
 
-    void loadProgress(GetShopDataLoadListener getShopDataLoadListener);
+    void loadProgress(GetSearchDataLoadListener getShopDataLoadListener);
 
-    interface GetShopDataLoadListener{
-        void onCompleted(List<Shop> datas);
+    interface GetSearchDataLoadListener{
+        void onCompleted(List<SearchFood> datas);
     }
 }

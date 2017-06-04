@@ -32,20 +32,15 @@ public class IndexAdapter extends RecyclerView.Adapter<FoodViewHolder> {
 
     private Activity activity;
 
-    public IndexAdapter(	List<Shop> datas,Activity activity){
-
+    public IndexAdapter(List<Shop> datas,Activity activity){
         this.datas = datas ;
-
         this.activity = activity;
     }
 
     @Override
     public FoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_display_item,parent,false);
-
         final FoodViewHolder holder = new FoodViewHolder(view);
-
         return holder;
     }
 

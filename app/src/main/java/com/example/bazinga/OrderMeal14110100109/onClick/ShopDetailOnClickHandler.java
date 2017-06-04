@@ -31,12 +31,11 @@ public class ShopDetailOnClickHandler implements View.OnClickListener {
         public void onClick(View v) {
 
             Intent intent = new Intent(activity, FoodDetailActivity.class);
-
             intent.putExtra(ListenerType.FOOD_ID, objectId);
 
-            if(intro != null)
-            intent.putExtra(ListenerType.Extra_Info, intro);
-
+            if(intro != null){
+                intent.putExtra(ListenerType.Extra_Info, intro);
+            }
             activity.startActivity(intent);
 
         }

@@ -27,8 +27,8 @@
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/register_EditView"
-            android:textColorHint="#000"
+            style="@style/login_inputLayout"
+            app:hintTextAppearance="@style/MyStyle"
             >
 
             <EditText
@@ -39,8 +39,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/register_EditView"
-            android:textColorHint="#000"
+            style="@style/login_inputLayout"
+            app:hintTextAppearance="@style/MyStyle"
             >
 
             <EditText
@@ -51,8 +51,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/register_EditView"
-            android:textColorHint="#000"
+            style="@style/login_inputLayout"
+            app:hintTextAppearance="@style/MyStyle"
             >
 
             <EditText
@@ -63,8 +63,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/register_EditView"
-            android:textColorHint="#000"
+            style="@style/login_inputLayout"
+            app:hintTextAppearance="@style/MyStyle"
             >
 
             <EditText
@@ -75,8 +75,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/register_EditView"
-            android:textColorHint="#000"
+            style="@style/login_inputLayout"
+            app:hintTextAppearance="@style/MyStyle"
             >
 
             <EditText
@@ -87,8 +87,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/register_EditView"
-            android:textColorHint="#000"
+            style="@style/login_inputLayout"
+            app:hintTextAppearance="@style/MyStyle"
             >
 
             <EditText
@@ -107,7 +107,7 @@
             style="@style/login_textView"
             android:layout_height="wrap_content"
             android:id="@+id/registerButton"
-            android:background="#00ff0000"
+            android:background="#4fff"
             />
 
 
